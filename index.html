@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Jonathan Sosa - Full-Stack Web Developer specializing in responsive websites, PHP, MySQL and modern web applications.">
+  <meta name="description" content="Jonathan Sosa — Full-Stack Web Developer. Responsive websites, PHP, MySQL, web applications and business solutions.">
   <meta name="theme-color" content="#071426">
   <title>Jonathan Sosa | Full-Stack Web Developer</title>
 
@@ -23,9 +23,9 @@
     }
 
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
 
     html {
@@ -50,9 +50,14 @@
       font: inherit;
     }
 
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
     .container {
       width: min(92%, var(--max-width));
-      margin: 0 auto;
+      margin: auto;
     }
 
     section {
@@ -69,7 +74,7 @@
     }
 
     .section-title {
-      font-size: clamp(2rem,4vw,2.8rem);
+      font-size: clamp(2rem, 4vw, 2.8rem);
       line-height: 1.2;
       margin-bottom: 20px;
     }
@@ -195,11 +200,8 @@
       display: flex;
       align-items: center;
       background:
-        radial-gradient(
-          circle at 85% 30%,
-          rgba(32,118,177,.2),
-          transparent 38%
-        ),
+        radial-gradient(circle at 85% 30%,
+          rgba(32,118,177,.2), transparent 38%),
         linear-gradient(135deg,#071426,#0b213c);
     }
 
@@ -281,7 +283,7 @@
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 30px;
-      transition: transform .2s,border-color .2s;
+      transition: transform .2s, border-color .2s;
     }
 
     .tech-card:hover {
@@ -330,7 +332,7 @@
       border: 1px solid var(--border);
       border-radius: var(--radius);
       overflow: hidden;
-      transition: transform .25s,border-color .25s;
+      transition: transform .25s, border-color .25s;
     }
 
     .project-card:hover {
@@ -338,29 +340,104 @@
       border-color: rgba(79,195,247,.4);
     }
 
+    /* REAL SWEETTECH SCREENSHOTS */
+
+    .project-gallery {
+      position: relative;
+      background: #081525;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .gallery-main {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: #0b1b30;
+    }
+
+    .gallery-main img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .gallery-controls {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      transform: translateY(-50%);
+      display: flex;
+      justify-content: space-between;
+      padding: 0 10px;
+      pointer-events: none;
+    }
+
+    .gallery-arrow {
+      pointer-events: auto;
+      background: rgba(7,20,38,.85);
+      color: white;
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 50%;
+      width: 38px;
+      height: 38px;
+      cursor: pointer;
+      font-size: 1.4rem;
+      line-height: 1;
+    }
+
+    .gallery-arrow:hover {
+      background: #17618a;
+    }
+
+    .gallery-caption {
+      padding: 11px 15px;
+      color: #c9dcec;
+      font-size: .82rem;
+      text-align: center;
+    }
+
+    .gallery-thumbnails {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 8px;
+      padding: 0 12px 14px;
+    }
+
+    .gallery-thumb {
+      padding: 0;
+      border: 2px solid transparent;
+      border-radius: 7px;
+      overflow: hidden;
+      background: #0b1b30;
+      cursor: pointer;
+      opacity: .65;
+    }
+
+    .gallery-thumb.active {
+      border-color: var(--accent);
+      opacity: 1;
+    }
+
+    .gallery-thumb img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+
+    /* ACADEMIA PROJECT PREVIEW */
+
     .project-preview {
       height: 250px;
       display: flex;
       justify-content: center;
       align-items: center;
       background:
-        radial-gradient(
-          circle at 75% 20%,
-          rgba(79,195,247,.22),
-          transparent 45%
-        ),
-        linear-gradient(135deg,#0a1b32,#153b60);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .project-preview.academia {
-      background:
-        radial-gradient(
-          circle at 75% 20%,
-          rgba(137,194,154,.19),
-          transparent 45%
-        ),
+        radial-gradient(circle at 75% 20%,
+          rgba(137,194,154,.19), transparent 45%),
         linear-gradient(135deg,#102523,#275247);
+      border-bottom: 1px solid var(--border);
     }
 
     .preview-window {
@@ -375,7 +452,6 @@
 
     .preview-topbar {
       display: flex;
-      align-items: center;
       gap: 6px;
       padding: 12px;
       background: rgba(255,255,255,.06);
@@ -396,8 +472,7 @@
 
     .preview-body h3 {
       color: white;
-      font-size: clamp(1.3rem,3vw,1.7rem);
-      line-height: 1.3;
+      font-size: 1.7rem;
       margin-bottom: 8px;
     }
 
@@ -410,12 +485,8 @@
       width: 85px;
       height: 4px;
       border-radius: 5px;
-      background: var(--accent);
-      margin: 20px auto 0;
-    }
-
-    .academia .preview-accent {
       background: #9bcca4;
+      margin: 20px auto 0;
     }
 
     .project-content {
@@ -524,11 +595,8 @@
     .contact {
       text-align: center;
       background:
-        radial-gradient(
-          circle at center,
-          rgba(24,99,157,.13),
-          transparent 60%
-        ),
+        radial-gradient(circle at center,
+          rgba(24,99,157,.13), transparent 60%),
         var(--bg-secondary);
     }
 
@@ -553,7 +621,7 @@
       text-decoration: underline;
     }
 
-    /* WHATSAPP FLOATING BUTTON */
+    /* FLOATING WHATSAPP */
 
     .whatsapp-float {
       position: fixed;
@@ -567,7 +635,7 @@
       justify-content: center;
       border-radius: 50%;
       background: #25d366;
-      color: #fff;
+      color: white;
       box-shadow: 0 8px 25px rgba(0,0,0,.35);
       transition: transform .2s, background .2s;
     }
@@ -873,7 +941,6 @@
 
           <div class="tech-card">
             <h3>Front-End Development</h3>
-
             <div class="tech-tags">
               <span class="tag">HTML5</span>
               <span class="tag">CSS3</span>
@@ -884,7 +951,6 @@
 
           <div class="tech-card">
             <h3>Back-End & Databases</h3>
-
             <div class="tech-tags">
               <span class="tag">PHP</span>
               <span class="tag">MySQL</span>
@@ -895,7 +961,6 @@
 
           <div class="tech-card">
             <h3>Tools & Platforms</h3>
-
             <div class="tech-tags">
               <span class="tag">Git</span>
               <span class="tag">GitHub</span>
@@ -931,19 +996,80 @@
           <!-- SWEETTECH GEAR -->
           <article class="project-card">
 
-            <div class="project-preview">
-              <div class="preview-window">
-                <div class="preview-topbar">
-                  <span class="preview-dot"></span>
-                  <span class="preview-dot"></span>
-                  <span class="preview-dot"></span>
-                </div>
+            <div class="project-gallery" id="sweetTechGallery">
 
-                <div class="preview-body">
-                  <h3>SweetTech Gear</h3>
-                  <p>Gaming & Technology Platform</p>
-                  <div class="preview-accent"></div>
+              <div class="gallery-main">
+                <img
+                  id="sweetTechMainImage"
+                  src="images/01_home_categories.jpg"
+                  alt="SweetTech Gear administration dashboard"
+                >
+
+                <div class="gallery-controls">
+                  <button
+                    class="gallery-arrow"
+                    type="button"
+                    id="galleryPrev"
+                    aria-label="Previous screenshot"
+                  >&#8249;</button>
+
+                  <button
+                    class="gallery-arrow"
+                    type="button"
+                    id="galleryNext"
+                    aria-label="Next screenshot"
+                  >&#8250;</button>
                 </div>
+              </div>
+
+              <p class="gallery-caption" id="galleryCaption">
+                Administration Dashboard
+              </p>
+
+              <div class="gallery-thumbnails">
+
+                <button
+                  type="button"
+                  class="gallery-thumb active"
+                  data-gallery-index="0"
+                  aria-label="Show administration dashboard"
+                  aria-pressed="true"
+                >
+                  <img
+                    src="images/01_home_categories.jpg"
+                    alt="Administration dashboard thumbnail"
+                    loading="lazy"
+                  >
+                </button>
+
+                <button
+                  type="button"
+                  class="gallery-thumb"
+                  data-gallery-index="1"
+                  aria-label="Show product details"
+                  aria-pressed="false"
+                >
+                  <img
+                    src="images/02_product_details.jpg"
+                    alt="Product details thumbnail"
+                    loading="lazy"
+                  >
+                </button>
+
+                <button
+                  type="button"
+                  class="gallery-thumb"
+                  data-gallery-index="2"
+                  aria-label="Show games section"
+                  aria-pressed="false"
+                >
+                  <img
+                    src="images/03_reviews.jpg"
+                    alt="Games section thumbnail"
+                    loading="lazy"
+                  >
+                </button>
+
               </div>
             </div>
 
@@ -966,6 +1092,7 @@
                 <li>Database-driven product listings</li>
                 <li>Product management and admin interface</li>
                 <li>Product offers and deal organization</li>
+                <li>Side-by-side product comparison interface</li>
                 <li>Responsive, mobile-friendly design</li>
                 <li>PHP and MySQL/MariaDB integration</li>
               </ul>
@@ -979,15 +1106,15 @@
               </div>
 
               <p class="project-note">
-                Project currently under development.
-                Public application demo not yet available.
+                Screenshots from the local development
+                environment. Public application demo
+                not yet available.
               </p>
 
               <div class="project-actions">
                 <a
                   href="projects/sweettech-gear.html"
                   class="btn btn-primary"
-                  aria-label="View SweetTech Gear project details"
                 >
                   View Project
                 </a>
@@ -999,8 +1126,9 @@
           <!-- ACADEMIA KM -->
           <article class="project-card">
 
-            <div class="project-preview academia">
+            <div class="project-preview">
               <div class="preview-window">
+
                 <div class="preview-topbar">
                   <span class="preview-dot"></span>
                   <span class="preview-dot"></span>
@@ -1012,6 +1140,7 @@
                   <p>E-Learning Web Application</p>
                   <div class="preview-accent"></div>
                 </div>
+
               </div>
             </div>
 
@@ -1057,7 +1186,6 @@
                 <a
                   href="projects/academia-km.html"
                   class="btn btn-primary"
-                  aria-label="View Academia KM project details"
                 >
                   View Project
                 </a>
@@ -1082,48 +1210,38 @@
 
         <p class="section-description">
           Web development solutions focused on
-          functionality, usability and responsive
-          design.
+          functionality, usability and responsive design.
         </p>
 
         <div class="services-grid">
 
           <div class="service-card">
             <div class="service-number">01</div>
-
             <h3>Website Development</h3>
-
             <p>
-              Responsive business websites and
-              landing pages designed to deliver
-              a professional online experience
-              across desktop and mobile devices.
+              Responsive business websites and landing
+              pages designed to deliver a professional
+              online experience across desktop and mobile devices.
             </p>
           </div>
 
           <div class="service-card">
             <div class="service-number">02</div>
-
             <h3>Full-Stack Applications</h3>
-
             <p>
-              Database-driven web applications
-              using PHP and MySQL, including
-              authentication, content management
-              and administrative functionality.
+              Database-driven web applications using
+              PHP and MySQL, including authentication,
+              content management and administrative functionality.
             </p>
           </div>
 
           <div class="service-card">
             <div class="service-number">03</div>
-
             <h3>Website Improvements</h3>
-
             <p>
               Improvements to existing websites,
-              including responsive layouts,
-              interface updates, bug fixes
-              and functionality enhancements.
+              including responsive layouts, interface
+              updates, bug fixes and functionality enhancements.
             </p>
           </div>
 
@@ -1142,13 +1260,13 @@
         </h2>
 
         <p class="section-description">
-          Interested in a business website,
-          a custom web application or improvements
-          to an existing platform?
-          Get in touch to discuss your project.
+          Interested in a business website, a custom
+          web application or improvements to an existing
+          platform? Get in touch to discuss your project.
         </p>
 
         <div class="btn-group">
+
           <a
             href="mailto:jonathaneeuu704@gmail.com?subject=Web%20Development%20Inquiry"
             class="btn btn-primary"
@@ -1173,6 +1291,7 @@
           >
             View My GitHub
           </a>
+
         </div>
 
         <a
@@ -1232,12 +1351,14 @@
   <script>
     document.addEventListener("DOMContentLoaded", function () {
 
+      // Current year
       const yearElement = document.getElementById("currentYear");
 
       if (yearElement) {
         yearElement.textContent = new Date().getFullYear();
       }
 
+      // Mobile navigation
       const menuToggle = document.getElementById("menuToggle");
       const siteNav = document.getElementById("siteNav");
 
@@ -1252,11 +1373,7 @@
         menuToggle.addEventListener("click", function () {
           const isOpen = siteNav.classList.toggle("open");
 
-          menuToggle.setAttribute(
-            "aria-expanded",
-            String(isOpen)
-          );
-
+          menuToggle.setAttribute("aria-expanded", String(isOpen));
           menuToggle.setAttribute(
             "aria-label",
             isOpen ? "Close navigation" : "Open navigation"
@@ -1278,8 +1395,78 @@
             closeMenu();
           }
         });
-
       }
+
+      // SweetTech Gear screenshot gallery
+      const galleryImages = [
+        {
+          src: "images/01_home_categories.jpg",
+          alt: "SweetTech Gear administration dashboard",
+          caption: "Administration Dashboard"
+        },
+        {
+          src: "images/02_product_details.jpg",
+          alt: "SweetTech Gear PlayStation 5 Pro product details and comparison",
+          caption: "Product Details & Comparison"
+        },
+        {
+          src: "images/03_reviews.jpg",
+          alt: "SweetTech Gear games section",
+          caption: "Games Section"
+        }
+      ];
+
+      const mainImage = document.getElementById("sweetTechMainImage");
+      const galleryCaption = document.getElementById("galleryCaption");
+      const thumbnails = document.querySelectorAll(
+        "#sweetTechGallery .gallery-thumb"
+      );
+
+      let currentImage = 0;
+
+      function showGalleryImage(index) {
+        if (!mainImage || !galleryCaption) {
+          return;
+        }
+
+        currentImage =
+          (index + galleryImages.length) % galleryImages.length;
+
+        const image = galleryImages[currentImage];
+
+        mainImage.src = image.src;
+        mainImage.alt = image.alt;
+        galleryCaption.textContent = image.caption;
+
+        thumbnails.forEach(function (thumb, thumbIndex) {
+          const active = thumbIndex === currentImage;
+
+          thumb.classList.toggle("active", active);
+          thumb.setAttribute("aria-pressed", String(active));
+        });
+      }
+
+      const previousButton = document.getElementById("galleryPrev");
+      const nextButton = document.getElementById("galleryNext");
+
+      if (previousButton) {
+        previousButton.addEventListener("click", function () {
+          showGalleryImage(currentImage - 1);
+        });
+      }
+
+      if (nextButton) {
+        nextButton.addEventListener("click", function () {
+          showGalleryImage(currentImage + 1);
+        });
+      }
+
+      thumbnails.forEach(function (thumb) {
+        thumb.addEventListener("click", function () {
+          const index = Number(thumb.dataset.galleryIndex);
+          showGalleryImage(index);
+        });
+      });
 
     });
   </script>
