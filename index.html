@@ -3,27 +3,24 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Jonathan Sosa — Full-Stack Web Developer specializing in responsive websites, PHP, MySQL, JavaScript and modern web applications.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Jonathan Sosa — Full-Stack Web Developer building responsive websites and PHP-powered web applications.">
   <meta name="theme-color" content="#080e1d">
+
   <title>Jonathan Sosa | Full-Stack Web Developer</title>
 
   <style>
     :root {
       --bg: #080e1d;
       --surface: #111b30;
-      --surface-light: #182640;
+      --surface2: #182640;
       --text: #f1f5ff;
       --muted: #a3b2ca;
       --accent: #49c5ff;
-      --accent-dark: #159ad6;
       --border: #273750;
-      --max-width: 1120px;
     }
 
     * {
-      margin: 0;
-      padding: 0;
       box-sizing: border-box;
     }
 
@@ -33,10 +30,10 @@
     }
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+      font: 16px/1.7 Arial, Helvetica, sans-serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.7;
     }
 
     a {
@@ -49,36 +46,41 @@
     }
 
     .container {
-      width: min(90%, var(--max-width));
+      width: min(90%, 1120px);
       margin: auto;
     }
 
     .section {
-      padding: 95px 0;
+      padding: 90px 0;
     }
 
-    .section-heading {
-      margin-bottom: 38px;
-    }
-
-    .section-heading h2 {
-      font-size: clamp(1.9rem, 4vw, 2.6rem);
-      margin-bottom: 12px;
-      letter-spacing: -1px;
-    }
-
-    .section-heading p {
-      color: var(--muted);
-      max-width: 650px;
+    .alt {
+      background: #0d1628;
     }
 
     .eyebrow {
       color: var(--accent);
       text-transform: uppercase;
       letter-spacing: 2px;
-      font-size: 0.85rem;
+      font-size: .85rem;
       font-weight: 700;
-      margin-bottom: 15px;
+      margin: 0 0 14px;
+    }
+
+    .heading {
+      margin-bottom: 36px;
+    }
+
+    .heading h2 {
+      font-size: clamp(1.9rem, 4vw, 2.6rem);
+      letter-spacing: -1px;
+      margin: 0 0 12px;
+    }
+
+    .heading p {
+      color: var(--muted);
+      max-width: 650px;
+      margin: 0;
     }
 
     /* HEADER */
@@ -87,7 +89,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(8, 14, 29, 0.96);
+      background: #080e1df5;
       border-bottom: 1px solid var(--border);
     }
 
@@ -102,7 +104,6 @@
     .logo {
       font-size: 1.25rem;
       font-weight: 800;
-      letter-spacing: -0.5px;
     }
 
     .logo span {
@@ -112,13 +113,12 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 30px;
+      gap: 28px;
     }
 
     .nav-links a {
       color: var(--muted);
-      font-size: 0.95rem;
-      transition: color 0.2s;
+      font-size: .94rem;
     }
 
     .nav-links a:hover,
@@ -129,8 +129,8 @@
     .menu-toggle {
       display: none;
       background: transparent;
-      border: 1px solid var(--border);
       color: white;
+      border: 1px solid var(--border);
       padding: 8px 13px;
       border-radius: 8px;
       cursor: pointer;
@@ -145,9 +145,8 @@
       padding: 13px 24px;
       border-radius: 9px;
       font-weight: 700;
-      transition: 0.2s;
+      transition: .2s;
       text-align: center;
-      cursor: pointer;
     }
 
     .btn-primary {
@@ -162,7 +161,6 @@
 
     .btn-outline {
       border: 1px solid var(--border);
-      color: var(--text);
     }
 
     .btn-outline:hover {
@@ -173,30 +171,26 @@
     /* HERO */
 
     .hero {
-      min-height: 650px;
+      min-height: 640px;
       display: flex;
       align-items: center;
-      position: relative;
-      overflow: hidden;
-      background:
-        radial-gradient(
-          circle at 80% 35%,
-          rgba(35, 136, 211, 0.15),
-          transparent 35%
-        ),
-        var(--bg);
+      background: radial-gradient(
+        circle at 80% 35%,
+        #2388d326,
+        transparent 36%
+      );
     }
 
     .hero-content {
       max-width: 820px;
-      padding: 90px 0;
+      padding: 85px 0;
     }
 
     .hero h1 {
       font-size: clamp(2.7rem, 6vw, 5rem);
       line-height: 1.12;
       letter-spacing: -2px;
-      margin-bottom: 25px;
+      margin: 0 0 25px;
     }
 
     .hero h1 span {
@@ -207,7 +201,7 @@
       color: var(--muted);
       font-size: 1.12rem;
       max-width: 680px;
-      margin-bottom: 30px;
+      margin: 0 0 30px;
     }
 
     .hero-buttons {
@@ -222,67 +216,54 @@
       display: grid;
       grid-template-columns: 1.4fr 1fr;
       gap: 35px;
-      align-items: start;
     }
 
     .about-text p {
       color: var(--muted);
-      margin-bottom: 18px;
+      margin: 0 0 18px;
     }
 
-    .info-card {
+    .info-card,
+    .skill-card,
+    .service-card {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 30px;
+      border-radius: 15px;
+      padding: 28px;
     }
 
-    .info-card h3 {
+    .info-card h3,
+    .skill-card h3 {
       color: var(--accent);
-      margin-bottom: 15px;
+      margin: 0 0 15px;
     }
 
     .info-card p {
       color: var(--muted);
-      margin-bottom: 10px;
+      margin: 0 0 10px;
     }
 
-    /* TECHNOLOGIES */
+    /* SKILLS */
 
-    .alt-section {
-      background: #0d1628;
-    }
-
-    .skills-grid {
+    .skills-grid,
+    .services-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 22px;
     }
 
-    .skill-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 28px;
-    }
-
-    .skill-card h3 {
-      color: var(--accent);
-      margin-bottom: 18px;
-    }
-
-    .skill-tags {
+    .tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 9px;
     }
 
     .tag {
-      background: var(--surface-light);
+      background: var(--surface2);
       border: 1px solid var(--border);
       border-radius: 7px;
-      padding: 7px 12px;
-      font-size: 0.86rem;
+      padding: 6px 11px;
+      font-size: .85rem;
       color: #dbe8f9;
     }
 
@@ -290,7 +271,7 @@
 
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 25px;
     }
 
@@ -299,11 +280,11 @@
       border: 1px solid var(--border);
       border-radius: 16px;
       overflow: hidden;
-      transition: 0.25s;
+      transition: .25s;
     }
 
     .project-card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-4px);
       border-color: var(--accent);
     }
 
@@ -312,26 +293,33 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      text-align: center;
       padding: 25px;
-      background:
-        linear-gradient(
-          135deg,
-          #123253,
-          #0b162b 75%
-        );
+      background: linear-gradient(
+        135deg,
+        #123253,
+        #0b162b 75%
+      );
       border-bottom: 1px solid var(--border);
     }
 
-    .project-visual span {
-      color: #d7f2ff;
-      font-size: clamp(1.5rem, 3vw, 2rem);
-      font-weight: 800;
-      text-align: center;
-      letter-spacing: -1px;
+    .project-visual.academy {
+      background: linear-gradient(
+        135deg,
+        #183f32,
+        #102d24 75%
+      );
     }
 
-    .project-visual.secondary {
-      background: linear-gradient(135deg, #153b4e, #111a30);
+    .project-visual span {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 800;
+      letter-spacing: -1px;
+      color: #d7f2ff;
+    }
+
+    .project-visual.academy span {
+      color: #eac583;
     }
 
     .project-body {
@@ -340,38 +328,25 @@
 
     .project-body h3 {
       font-size: 1.4rem;
-      margin-bottom: 12px;
+      margin: 0 0 12px;
     }
 
     .project-body p {
       color: var(--muted);
-      margin-bottom: 20px;
+      margin: 0 0 20px;
     }
 
-    .project-body .skill-tags {
+    .project-body .tags {
       margin-bottom: 22px;
     }
 
     .project-note {
-      font-size: 0.88rem;
+      font-size: .88rem;
       color: var(--accent);
       font-weight: 700;
     }
 
     /* SERVICES */
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-
-    .service-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 30px;
-    }
 
     .service-number {
       display: inline-block;
@@ -381,22 +356,22 @@
     }
 
     .service-card h3 {
-      margin-bottom: 12px;
+      margin: 0 0 12px;
     }
 
     .service-card p {
       color: var(--muted);
+      margin: 0;
     }
 
     /* CONTACT */
 
     .contact-box {
-      background:
-        linear-gradient(
-          135deg,
-          #142c48,
-          #101a2e
-        );
+      background: linear-gradient(
+        135deg,
+        #142c48,
+        #101a2e
+      );
       border: 1px solid var(--border);
       border-radius: 20px;
       padding: 55px;
@@ -405,10 +380,10 @@
 
     .contact-box h2 {
       font-size: clamp(2rem, 4vw, 3rem);
-      margin-bottom: 15px;
+      margin: 0 0 15px;
     }
 
-    .contact-box p {
+    .contact-box p:not(.eyebrow) {
       color: var(--muted);
       max-width: 650px;
       margin: 0 auto 28px;
@@ -431,7 +406,8 @@
 
     footer p {
       color: var(--muted);
-      font-size: 0.9rem;
+      font-size: .9rem;
+      margin: 0;
     }
 
     footer a {
@@ -448,7 +424,7 @@
 
       .skills-grid,
       .services-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
@@ -546,15 +522,19 @@
       <button
         class="menu-toggle"
         id="menuToggle"
+        type="button"
         aria-label="Toggle navigation"
         aria-controls="navLinks"
         aria-expanded="false"
-        type="button"
       >
         ☰
       </button>
 
-      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+      <nav
+        class="nav-links"
+        id="navLinks"
+        aria-label="Main navigation"
+      >
         <a href="#home">Home</a>
         <a href="#about">About</a>
         <a href="#skills">Tech Stack</a>
@@ -572,10 +552,11 @@
 
     <section class="hero" id="home">
       <div class="container">
-
         <div class="hero-content">
 
-          <p class="eyebrow">Full-Stack Web Developer</p>
+          <p class="eyebrow">
+            Full-Stack Web Developer
+          </p>
 
           <h1>
             Building modern
@@ -583,10 +564,11 @@
           </h1>
 
           <p class="hero-description">
-            Hi, I'm Jonathan Sosa, a Full-Stack Web Developer
-            focused on creating responsive websites,
-            functional web applications, and reliable
-            back-end solutions.
+            Hi, I'm Jonathan Sosa, a Full-Stack
+            Web Developer focused on creating
+            responsive websites, functional web
+            applications, and reliable back-end
+            solutions.
           </p>
 
           <div class="hero-buttons">
@@ -607,7 +589,6 @@
           </div>
 
         </div>
-
       </div>
     </section>
 
@@ -616,7 +597,7 @@
     <section class="section" id="about">
       <div class="container">
 
-        <div class="section-heading">
+        <div class="heading">
           <p class="eyebrow">About Me</p>
           <h2>Developer focused on real solutions.</h2>
           <p>
@@ -630,17 +611,16 @@
           <div class="about-text">
 
             <p>
-              I'm Jonathan Sosa, a web developer with
-              a background in Computer Engineering
-              and hands-on experience building
-              websites and web-based systems.
+              I'm Jonathan Sosa, a web developer
+              with a background in Computer Engineering
+              and hands-on experience building websites
+              and web-based systems.
             </p>
 
             <p>
-              I work with front-end technologies
-              such as HTML, CSS, and JavaScript,
-              along with back-end development
-              using PHP and MySQL.
+              I work with front-end technologies such
+              as HTML, CSS, and JavaScript, along with
+              back-end development using PHP and MySQL.
             </p>
 
             <p>
@@ -666,21 +646,20 @@
           </div>
 
         </div>
-
       </div>
     </section>
 
     <!-- TECH STACK -->
 
-    <section class="section alt-section" id="skills">
+    <section class="section alt" id="skills">
       <div class="container">
 
-        <div class="section-heading">
+        <div class="heading">
           <p class="eyebrow">My Technologies</p>
           <h2>Tech Stack</h2>
           <p>
-            Technologies I use to build and
-            maintain web projects.
+            Technologies I use to build
+            and maintain web projects.
           </p>
         </div>
 
@@ -689,7 +668,7 @@
           <div class="skill-card">
             <h3>Front-End</h3>
 
-            <div class="skill-tags">
+            <div class="tags">
               <span class="tag">HTML5</span>
               <span class="tag">CSS3</span>
               <span class="tag">JavaScript</span>
@@ -700,7 +679,7 @@
           <div class="skill-card">
             <h3>Back-End</h3>
 
-            <div class="skill-tags">
+            <div class="tags">
               <span class="tag">PHP</span>
               <span class="tag">MySQL</span>
               <span class="tag">MariaDB</span>
@@ -709,9 +688,9 @@
           </div>
 
           <div class="skill-card">
-            <h3>Tools & Platforms</h3>
+            <h3>Tools &amp; Platforms</h3>
 
-            <div class="skill-tags">
+            <div class="tags">
               <span class="tag">GitHub</span>
               <span class="tag">Git</span>
               <span class="tag">VS Code</span>
@@ -721,27 +700,31 @@
           </div>
 
         </div>
-
       </div>
     </section>
 
-    <!-- PROJECTS -->
+    <!-- FEATURED PROJECTS -->
 
     <section class="section" id="projects">
       <div class="container">
 
-        <div class="section-heading">
+        <div class="heading">
+
           <p class="eyebrow">My Work</p>
+
           <h2>Featured Projects</h2>
+
           <p>
-            A selection of projects demonstrating
-            my front-end and back-end development skills.
+            Full-stack projects showcasing
+            front-end interfaces, PHP back-end
+            development, and database integration.
           </p>
+
         </div>
 
         <div class="projects-grid">
 
-          <!-- SWEETTECH GEAR -->
+          <!-- PROJECT 1: SWEETTECH GEAR -->
 
           <article class="project-card">
 
@@ -762,7 +745,7 @@
                 and an administration interface.
               </p>
 
-              <div class="skill-tags">
+              <div class="tags">
                 <span class="tag">PHP</span>
                 <span class="tag">MySQL</span>
                 <span class="tag">HTML</span>
@@ -777,34 +760,45 @@
 
           </article>
 
-          <!-- FUTURE PROJECT -->
+          <!-- PROJECT 2: ACADEMIA KM -->
 
           <article class="project-card">
 
-            <div class="project-visual secondary">
-              <span>Business Website Template</span>
+            <div class="project-visual academy">
+              <span>Academia KM</span>
             </div>
 
             <div class="project-body">
 
-              <h3>Business Website Template</h3>
+              <h3>
+                Academia KM — E-Learning Platform
+              </h3>
 
               <p>
-                A planned reusable website template
-                for service-based businesses,
-                featuring a modern layout,
-                responsive sections,
-                and a quote request interface.
+                A custom educational web application
+                featuring user authentication,
+                a video-based learning interface,
+                course and lesson navigation,
+                and protected access to downloadable
+                educational materials.
               </p>
 
-              <div class="skill-tags">
-                <span class="tag">HTML</span>
-                <span class="tag">CSS</span>
+              <p>
+                The PHP back end uses PDO database
+                queries, session controls,
+                and CSRF protection.
+              </p>
+
+              <div class="tags">
+                <span class="tag">PHP</span>
+                <span class="tag">MySQL</span>
                 <span class="tag">JavaScript</span>
+                <span class="tag">HTML5</span>
+                <span class="tag">CSS3</span>
               </div>
 
               <span class="project-note">
-                Planned Project
+                In Development
               </span>
 
             </div>
@@ -818,55 +812,63 @@
 
     <!-- SERVICES -->
 
-    <section class="section alt-section" id="services">
+    <section class="section alt" id="services">
       <div class="container">
 
-        <div class="section-heading">
+        <div class="heading">
           <p class="eyebrow">What I Do</p>
           <h2>Development Services</h2>
           <p>
-            Web development solutions for businesses
-            and digital projects.
+            Web development solutions for
+            businesses and digital projects.
           </p>
         </div>
 
         <div class="services-grid">
 
           <div class="service-card">
+
             <span class="service-number">01</span>
+
             <h3>Website Development</h3>
+
             <p>
-              Modern, responsive websites
-              designed for businesses,
-              personal brands,
+              Modern, responsive websites designed
+              for businesses, personal brands,
               and online services.
             </p>
+
           </div>
 
           <div class="service-card">
+
             <span class="service-number">02</span>
+
             <h3>Full-Stack Applications</h3>
+
             <p>
-              Web applications combining
-              interactive front-end interfaces
-              with PHP back-end functionality
-              and database integration.
+              Web applications combining interactive
+              front-end interfaces with PHP back-end
+              functionality and database integration.
             </p>
+
           </div>
 
           <div class="service-card">
+
             <span class="service-number">03</span>
+
             <h3>Website Improvements</h3>
+
             <p>
               Updates, responsive layout fixes,
-              content organization,
-              and improvements to
-              existing websites.
+              content organization, and improvements
+              to existing websites.
             </p>
+
           </div>
 
         </div>
-
       </div>
     </section>
 
@@ -920,34 +922,50 @@
           href="https://github.com/jonathanr704"
           target="_blank"
           rel="noopener noreferrer"
-        >GitHub</a>
+        >
+          GitHub
+        </a>
       </p>
 
     </div>
   </footer>
 
+  <!-- JAVASCRIPT -->
+
   <script>
-    const menuToggle = document.getElementById("menuToggle");
-    const navLinks = document.getElementById("navLinks");
+    const menuToggle =
+      document.getElementById("menuToggle");
+
+    const navLinks =
+      document.getElementById("navLinks");
 
     menuToggle.addEventListener("click", () => {
-      const isOpen = navLinks.classList.toggle("active");
+      const isOpen =
+        navLinks.classList.toggle("active");
 
       menuToggle.setAttribute(
         "aria-expanded",
         String(isOpen)
       );
 
-      menuToggle.textContent = isOpen ? "✕" : "☰";
+      menuToggle.textContent =
+        isOpen ? "✕" : "☰";
     });
 
-    document.querySelectorAll(".nav-links a").forEach(link => {
-      link.addEventListener("click", () => {
-        navLinks.classList.remove("active");
-        menuToggle.setAttribute("aria-expanded", "false");
-        menuToggle.textContent = "☰";
+    document
+      .querySelectorAll(".nav-links a")
+      .forEach(link => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("active");
+
+          menuToggle.setAttribute(
+            "aria-expanded",
+            "false"
+          );
+
+          menuToggle.textContent = "☰";
+        });
       });
-    });
 
     document.getElementById("year").textContent =
       new Date().getFullYear();
