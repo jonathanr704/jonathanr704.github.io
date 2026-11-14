@@ -13,12 +13,11 @@
       --bg: #071426;
       --bg-secondary: #0b1b30;
       --card: #10233d;
-      --card-hover: #142c49;
       --accent: #4fc3f7;
       --accent-light: #86ddff;
       --text: #f2f7ff;
       --muted: #a3b6ca;
-      --border: rgba(120, 177, 220, 0.15);
+      --border: rgba(120,177,220,.15);
       --radius: 16px;
       --max-width: 1160px;
     }
@@ -62,7 +61,7 @@
 
     .section-label {
       color: var(--accent);
-      font-size: 0.85rem;
+      font-size: .85rem;
       font-weight: 700;
       letter-spacing: 2px;
       text-transform: uppercase;
@@ -70,7 +69,7 @@
     }
 
     .section-title {
-      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-size: clamp(2rem,4vw,2.8rem);
       line-height: 1.2;
       margin-bottom: 20px;
     }
@@ -91,7 +90,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(7, 20, 38, 0.96);
+      background: rgba(7,20,38,.96);
       border-bottom: 1px solid var(--border);
       backdrop-filter: blur(14px);
     }
@@ -107,7 +106,7 @@
     .logo {
       font-size: 1.35rem;
       font-weight: 800;
-      letter-spacing: -0.5px;
+      letter-spacing: -.5px;
       white-space: nowrap;
     }
 
@@ -123,9 +122,9 @@
     }
 
     .nav-links a {
-      font-size: 0.91rem;
+      font-size: .91rem;
       color: var(--muted);
-      transition: color 0.2s ease;
+      transition: color .2s;
     }
 
     .nav-links a:hover,
@@ -160,10 +159,10 @@
       min-height: 48px;
       padding: 12px 24px;
       border-radius: 9px;
-      font-size: 0.94rem;
+      font-size: .94rem;
       font-weight: 700;
       border: 1px solid transparent;
-      transition: transform 0.2s, background 0.2s;
+      transition: transform .2s, background .2s;
     }
 
     .btn:hover {
@@ -180,12 +179,23 @@
     }
 
     .btn-outline {
-      border-color: rgba(79, 195, 247, 0.45);
+      border-color: rgba(79,195,247,.45);
       color: var(--accent);
     }
 
     .btn-outline:hover {
-      background: rgba(79, 195, 247, 0.1);
+      background: rgba(79,195,247,.1);
+    }
+
+    .btn-disabled {
+      color: var(--muted);
+      background: rgba(255,255,255,.04);
+      border-color: var(--border);
+      cursor: default;
+    }
+
+    .btn-disabled:hover {
+      transform: none;
     }
 
     /* HERO */
@@ -198,10 +208,10 @@
       background:
         radial-gradient(
           circle at 85% 30%,
-          rgba(32, 118, 177, 0.2),
+          rgba(32,118,177,.2),
           transparent 38%
         ),
-        linear-gradient(135deg, #071426, #0b213c);
+        linear-gradient(135deg,#071426,#0b213c);
     }
 
     .hero-content {
@@ -219,7 +229,7 @@
     }
 
     .hero h1 {
-      font-size: clamp(2.6rem, 6vw, 4.5rem);
+      font-size: clamp(2.6rem,6vw,4.5rem);
       line-height: 1.13;
       letter-spacing: -1.5px;
       margin-bottom: 22px;
@@ -239,7 +249,7 @@
 
     .about-grid {
       display: grid;
-      grid-template-columns: 1.3fr 0.7fr;
+      grid-template-columns: 1.3fr .7fr;
       gap: 55px;
       align-items: center;
     }
@@ -265,7 +275,7 @@
       padding: 12px 0;
       border-bottom: 1px solid var(--border);
       color: var(--text);
-      font-size: 0.94rem;
+      font-size: .94rem;
     }
 
     .focus-item:last-child {
@@ -276,7 +286,7 @@
 
     .tech-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3,1fr);
       gap: 24px;
     }
 
@@ -285,12 +295,12 @@
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 30px;
-      transition: transform 0.2s, border-color 0.2s;
+      transition: transform .2s,border-color .2s;
     }
 
     .tech-card:hover {
       transform: translateY(-4px);
-      border-color: rgba(79, 195, 247, 0.35);
+      border-color: rgba(79,195,247,.35);
     }
 
     .tech-card h3 {
@@ -309,10 +319,10 @@
       display: inline-block;
       padding: 7px 12px;
       border-radius: 7px;
-      background: rgba(79, 195, 247, 0.09);
-      border: 1px solid rgba(79, 195, 247, 0.14);
+      background: rgba(79,195,247,.09);
+      border: 1px solid rgba(79,195,247,.14);
       color: #d2e7f5;
-      font-size: 0.81rem;
+      font-size: .81rem;
     }
 
     /* PROJECTS */
@@ -323,7 +333,7 @@
 
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(2,minmax(0,1fr));
       gap: 28px;
     }
 
@@ -334,12 +344,12 @@
       border: 1px solid var(--border);
       border-radius: var(--radius);
       overflow: hidden;
-      transition: transform 0.25s, border-color 0.25s;
+      transition: transform .25s,border-color .25s;
     }
 
     .project-card:hover {
       transform: translateY(-5px);
-      border-color: rgba(79, 195, 247, 0.4);
+      border-color: rgba(79,195,247,.4);
     }
 
     .project-preview {
@@ -352,10 +362,10 @@
       background:
         radial-gradient(
           circle at 75% 20%,
-          rgba(79, 195, 247, 0.22),
+          rgba(79,195,247,.22),
           transparent 45%
         ),
-        linear-gradient(135deg, #0a1b32, #153b60);
+        linear-gradient(135deg,#0a1b32,#153b60);
       border-bottom: 1px solid var(--border);
     }
 
@@ -363,19 +373,19 @@
       background:
         radial-gradient(
           circle at 75% 20%,
-          rgba(137, 194, 154, 0.19),
+          rgba(137,194,154,.19),
           transparent 45%
         ),
-        linear-gradient(135deg, #102523, #275247);
+        linear-gradient(135deg,#102523,#275247);
     }
 
     .preview-window {
       width: 83%;
       max-width: 390px;
-      background: rgba(6, 18, 34, 0.72);
-      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: rgba(6,18,34,.72);
+      border: 1px solid rgba(255,255,255,.16);
       border-radius: 11px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 20px 50px rgba(0,0,0,.3);
       overflow: hidden;
     }
 
@@ -384,15 +394,15 @@
       align-items: center;
       gap: 6px;
       padding: 12px;
-      background: rgba(255, 255, 255, 0.06);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255,255,255,.06);
+      border-bottom: 1px solid rgba(255,255,255,.08);
     }
 
     .preview-dot {
       width: 7px;
       height: 7px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.3);
+      background: rgba(255,255,255,.3);
     }
 
     .preview-body {
@@ -402,14 +412,14 @@
 
     .preview-body h3 {
       color: white;
-      font-size: clamp(1.3rem, 3vw, 1.7rem);
+      font-size: clamp(1.3rem,3vw,1.7rem);
       line-height: 1.3;
       margin-bottom: 8px;
     }
 
     .preview-body p {
       color: #bbd0df;
-      font-size: 0.84rem;
+      font-size: .84rem;
     }
 
     .preview-accent {
@@ -424,13 +434,6 @@
       background: #9bcca4;
     }
 
-    .project-preview img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
     .project-content {
       display: flex;
       flex-direction: column;
@@ -443,9 +446,9 @@
       display: inline-block;
       padding: 5px 12px;
       border-radius: 30px;
-      background: rgba(79, 195, 247, 0.1);
+      background: rgba(79,195,247,.1);
       color: var(--accent);
-      font-size: 0.77rem;
+      font-size: .77rem;
       font-weight: 700;
       margin-bottom: 16px;
     }
@@ -459,7 +462,7 @@
     .project-content > p {
       color: var(--muted);
       margin-bottom: 20px;
-      font-size: 0.94rem;
+      font-size: .94rem;
     }
 
     .project-features {
@@ -469,7 +472,7 @@
 
     .project-features li {
       color: #c4d5e5;
-      font-size: 0.9rem;
+      font-size: .9rem;
       margin-bottom: 10px;
       padding-left: 19px;
       position: relative;
@@ -487,16 +490,24 @@
     }
 
     .project-note {
-      font-size: 0.8rem;
+      font-size: .8rem;
       color: #849cb3;
       margin-top: 20px;
+    }
+
+    .project-actions {
+      margin-top: 24px;
+    }
+
+    .project-actions .btn {
+      width: 100%;
     }
 
     /* SERVICES */
 
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3,1fr);
       gap: 24px;
     }
 
@@ -511,7 +522,7 @@
       font-size: 2rem;
       font-weight: 800;
       color: var(--accent);
-      opacity: 0.8;
+      opacity: .8;
       margin-bottom: 16px;
     }
 
@@ -522,7 +533,7 @@
 
     .service-card p {
       color: var(--muted);
-      font-size: 0.94rem;
+      font-size: .94rem;
     }
 
     /* CONTACT */
@@ -532,7 +543,7 @@
       background:
         radial-gradient(
           circle at center,
-          rgba(24, 99, 157, 0.13),
+          rgba(24,99,157,.13),
           transparent 60%
         ),
         var(--bg-secondary);
@@ -560,7 +571,7 @@
       align-items: center;
       gap: 20px;
       color: var(--muted);
-      font-size: 0.88rem;
+      font-size: .88rem;
     }
 
     .footer-inner a {
@@ -577,7 +588,7 @@
 
       .tech-grid,
       .services-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2,1fr);
       }
 
       .nav-links {
@@ -629,7 +640,7 @@
       }
 
       .hero h1 {
-        letter-spacing: -0.7px;
+        letter-spacing: -.7px;
       }
 
       .projects-grid,
@@ -660,8 +671,8 @@
       *,
       *::before,
       *::after {
-        transition-duration: 0.01ms !important;
-        animation-duration: 0.01ms !important;
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
       }
     }
   </style>
@@ -919,25 +930,11 @@
               </p>
 
               <ul class="project-features">
-                <li>
-                  Database-driven product listings
-                </li>
-
-                <li>
-                  Product management and admin interface
-                </li>
-
-                <li>
-                  Product offers and deal organization
-                </li>
-
-                <li>
-                  Responsive, mobile-friendly design
-                </li>
-
-                <li>
-                  PHP and MySQL/MariaDB integration
-                </li>
+                <li>Database-driven product listings</li>
+                <li>Product management and admin interface</li>
+                <li>Product offers and deal organization</li>
+                <li>Responsive, mobile-friendly design</li>
+                <li>PHP and MySQL/MariaDB integration</li>
               </ul>
 
               <div class="tech-tags">
@@ -950,8 +947,19 @@
 
               <p class="project-note">
                 Project currently under development.
-                Public demo not yet available.
+                Public application demo not yet available.
               </p>
+
+              <!-- NEW: WORKING PROJECT DETAIL LINK -->
+              <div class="project-actions">
+                <a
+                  href="projects/sweettech-gear.html"
+                  class="btn btn-primary"
+                  aria-label="View SweetTech Gear project details"
+                >
+                  View Project
+                </a>
+              </div>
 
             </div>
           </article>
@@ -991,29 +999,12 @@
               </p>
 
               <ul class="project-features">
-                <li>
-                  User authentication with PHP sessions
-                </li>
-
-                <li>
-                  MySQL database access using PDO
-                </li>
-
-                <li>
-                  CSRF protection and login rate limiting
-                </li>
-
-                <li>
-                  Protected video and document delivery
-                </li>
-
-                <li>
-                  Course navigation and lesson search
-                </li>
-
-                <li>
-                  Responsive student learning interface
-                </li>
+                <li>User authentication with PHP sessions</li>
+                <li>MySQL database access using PDO</li>
+                <li>CSRF protection and login rate limiting</li>
+                <li>Protected video and document delivery</li>
+                <li>Course navigation and lesson search</li>
+                <li>Responsive student learning interface</li>
               </ul>
 
               <div class="tech-tags">
@@ -1029,6 +1020,13 @@
                 Private application; public demo
                 not available.
               </p>
+
+              <!-- ACADEMIA KM PAGE WILL BE CREATED NEXT -->
+              <div class="project-actions">
+                <span class="btn btn-disabled">
+                  Project Details Coming Soon
+                </span>
+              </div>
 
             </div>
           </article>
@@ -1163,14 +1161,12 @@
   <script>
     document.addEventListener("DOMContentLoaded", function () {
 
-      // Dynamic footer year
       const yearElement = document.getElementById("currentYear");
 
       if (yearElement) {
         yearElement.textContent = new Date().getFullYear();
       }
 
-      // Mobile navigation
       const menuToggle = document.getElementById("menuToggle");
       const siteNav = document.getElementById("siteNav");
 
@@ -1196,9 +1192,7 @@
           );
         });
 
-        const navLinks = siteNav.querySelectorAll("a");
-
-        navLinks.forEach(function (link) {
+        siteNav.querySelectorAll("a").forEach(function (link) {
           link.addEventListener("click", closeMenu);
         });
 
