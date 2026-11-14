@@ -1,1 +1,1093 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Academia KM - E-Learning Platform. Full-Stack PHP and MySQL project by Jonathan Sosa.">
+  <meta name="theme-color" content="#071426">
+  <title>Academia KM | Jonathan Sosa</title>
+
+  <style>
+    :root {
+      --bg: #071426;
+      --bg-secondary: #0b1b30;
+      --card: #10233d;
+      --accent: #4fc3f7;
+      --accent-light: #86ddff;
+      --text: #f2f7ff;
+      --muted: #a3b6ca;
+      --border: rgba(120,177,220,.15);
+      --radius: 16px;
+      --max-width: 1160px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(92%, var(--max-width));
+      margin: 0 auto;
+    }
+
+    section {
+      padding: 85px 0;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: .85rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    .highlight {
+      color: var(--accent);
+    }
+
+    .section-title {
+      font-size: clamp(2rem,4vw,2.8rem);
+      line-height: 1.2;
+      margin-bottom: 22px;
+    }
+
+    .section-description {
+      color: var(--muted);
+      max-width: 780px;
+      margin-bottom: 35px;
+    }
+
+    /* HEADER */
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(7,20,38,.96);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(14px);
+    }
+
+    .header-inner {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 1.35rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: .92rem;
+      transition: color .2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: white;
+      border-radius: 9px;
+      padding: 8px 13px;
+      font-size: 1.3rem;
+      cursor: pointer;
+    }
+
+    /* BUTTONS */
+
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 24px;
+      border-radius: 9px;
+      font-size: .94rem;
+      font-weight: 700;
+      transition: transform .2s, background .2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #061321;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-light);
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(79,195,247,.45);
+      color: var(--accent);
+    }
+
+    .btn-outline:hover {
+      background: rgba(79,195,247,.1);
+    }
+
+    /* HERO */
+
+    .hero {
+      padding: 110px 0 95px;
+      background:
+        radial-gradient(
+          circle at 85% 25%,
+          rgba(32,118,177,.22),
+          transparent 40%
+        ),
+        linear-gradient(135deg,#071426,#0b213c);
+    }
+
+    .status {
+      display: inline-block;
+      padding: 7px 14px;
+      border-radius: 25px;
+      background: rgba(79,195,247,.1);
+      color: var(--accent);
+      font-size: .8rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.7rem,6vw,4.8rem);
+      line-height: 1.13;
+      letter-spacing: -1px;
+      margin-bottom: 24px;
+    }
+
+    .hero-description {
+      color: var(--muted);
+      font-size: 1.08rem;
+      max-width: 750px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: rgba(79,195,247,.09);
+      border: 1px solid rgba(79,195,247,.15);
+      color: #d2e7f5;
+      padding: 7px 12px;
+      border-radius: 7px;
+      font-size: .82rem;
+    }
+
+    /* OVERVIEW */
+
+    .overview {
+      background: var(--bg-secondary);
+    }
+
+    .overview-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 35px;
+    }
+
+    .overview-text p {
+      color: var(--muted);
+      margin-bottom: 17px;
+    }
+
+    .info-card,
+    .feature-card,
+    .architecture-card,
+    .gallery-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 30px;
+    }
+
+    .info-card h3 {
+      color: var(--accent);
+      margin-bottom: 18px;
+    }
+
+    .info-row {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .info-row:last-child {
+      border-bottom: none;
+    }
+
+    .info-row strong {
+      display: block;
+      font-size: .85rem;
+      margin-bottom: 4px;
+    }
+
+    .info-row span {
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    /* FEATURES */
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3,minmax(0,1fr));
+      gap: 22px;
+    }
+
+    .feature-number {
+      color: var(--accent);
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: 13px;
+    }
+
+    .feature-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 12px;
+    }
+
+    .feature-card p,
+    .architecture-card p {
+      color: var(--muted);
+      font-size: .93rem;
+    }
+
+    /* TECHNOLOGIES */
+
+    .technology {
+      background: var(--bg-secondary);
+    }
+
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 22px;
+    }
+
+    .architecture-card h3 {
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+
+    /* GALLERY */
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2,minmax(0,1fr));
+      gap: 25px;
+    }
+
+    .gallery-card {
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .gallery-preview {
+      min-height: 240px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 25px;
+      background:
+        radial-gradient(
+          circle at 75% 20%,
+          rgba(137,194,154,.18),
+          transparent 45%
+        ),
+        linear-gradient(135deg,#102523,#275247);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .gallery-preview h3 {
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+    }
+
+    .gallery-preview p {
+      color: #c5dcd1;
+      font-size: .9rem;
+    }
+
+    .gallery-caption {
+      padding: 23px;
+    }
+
+    .gallery-caption h3 {
+      margin-bottom: 8px;
+    }
+
+    .gallery-caption p {
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    /* DEVELOPMENT STATUS */
+
+    .development-note {
+      background: var(--bg-secondary);
+    }
+
+    .note-panel {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 35px;
+      background: var(--card);
+    }
+
+    .note-panel h3 {
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .note-panel p {
+      color: var(--muted);
+      max-width: 820px;
+    }
+
+    /* CONTACT */
+
+    .contact {
+      text-align: center;
+      background:
+        radial-gradient(
+          circle at center,
+          rgba(24,99,157,.13),
+          transparent 60%
+        ),
+        var(--bg);
+    }
+
+    .contact p {
+      color: var(--muted);
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .contact .btn-group {
+      justify-content: center;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      color: var(--muted);
+      font-size: .88rem;
+    }
+
+    .footer-inner a {
+      color: var(--accent);
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 900px) {
+      .overview-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .features-grid,
+      .tech-grid {
+        grid-template-columns: repeat(2,1fr);
+      }
+    }
+
+    @media (max-width: 700px) {
+      section {
+        padding: 65px 0;
+      }
+
+      .header-inner {
+        min-height: 68px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .site-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #0b1b30;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .site-nav.open {
+        display: block;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        gap: 0;
+        padding: 12px 4%;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 12px;
+      }
+
+      .hero {
+        padding: 75px 0;
+      }
+
+      .features-grid,
+      .tech-grid,
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+
+      <a href="../index.html" class="logo">
+        Jonathan <span>Sosa.</span>
+      </a>
+
+      <button
+        type="button"
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Open navigation"
+        aria-controls="siteNav"
+        aria-expanded="false"
+      >
+        ☰
+      </button>
+
+      <nav class="site-nav" id="siteNav" aria-label="Main navigation">
+        <ul class="nav-links">
+          <li><a href="../index.html#home">Home</a></li>
+          <li><a href="../index.html#about">About</a></li>
+          <li><a href="../index.html#tech-stack">Tech Stack</a></li>
+          <li><a href="../index.html#projects">Projects</a></li>
+          <li><a href="../index.html#services">Services</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container">
+
+        <p class="eyebrow">
+          FULL-STACK WEB DEVELOPMENT PROJECT
+        </p>
+
+        <span class="status">IN DEVELOPMENT</span>
+
+        <h1>
+          Academia <span class="highlight">KM.</span>
+        </h1>
+
+        <p class="hero-description">
+          A PHP and MySQL-based e-learning
+          application designed to provide
+          authenticated access to online
+          courses, video lessons and
+          downloadable educational resources.
+          The platform combines a responsive
+          student interface with server-side
+          authentication and protected
+          file delivery.
+        </p>
+
+        <div class="tags">
+          <span class="tag">PHP</span>
+          <span class="tag">MySQL</span>
+          <span class="tag">PDO</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">HTML5</span>
+          <span class="tag">CSS3</span>
+          <span class="tag">Responsive Design</span>
+        </div>
+
+        <div class="btn-group">
+          <a href="../index.html#projects" class="btn btn-primary">
+            Back to Portfolio
+          </a>
+
+          <a href="#project-gallery" class="btn btn-outline">
+            Explore Project
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- OVERVIEW -->
+    <section class="overview" id="overview">
+      <div class="container">
+
+        <p class="eyebrow">Project Overview</p>
+
+        <h2 class="section-title">
+          About the <span class="highlight">Project</span>
+        </h2>
+
+        <div class="overview-grid">
+
+          <div class="overview-text">
+            <p>
+              Academia KM is an educational
+              web application developed to
+              organize online learning content
+              and provide students with a
+              centralized course experience.
+            </p>
+
+            <p>
+              The application uses PHP for
+              server-side functionality and
+              MySQL for user authentication
+              and database interaction.
+              PDO is used to manage database
+              access through prepared queries.
+            </p>
+
+            <p>
+              The course interface is designed
+              to help authenticated students
+              browse available lessons,
+              watch video content and
+              access downloadable materials.
+            </p>
+
+            <p>
+              Security-related functionality
+              includes session-based access
+              control, CSRF protection,
+              login rate limiting and
+              protected file delivery.
+            </p>
+
+            <p>
+              The platform is currently
+              under development, with a focus
+              on usability, secure access
+              and responsive layouts.
+            </p>
+          </div>
+
+          <aside class="info-card">
+            <h3>Project Information</h3>
+
+            <div class="info-row">
+              <strong>Project Name</strong>
+              <span>Academia KM</span>
+            </div>
+
+            <div class="info-row">
+              <strong>Project Type</strong>
+              <span>E-Learning Web Application</span>
+            </div>
+
+            <div class="info-row">
+              <strong>Development</strong>
+              <span>Full-Stack Web Development</span>
+            </div>
+
+            <div class="info-row">
+              <strong>Back-End</strong>
+              <span>PHP / PDO</span>
+            </div>
+
+            <div class="info-row">
+              <strong>Database</strong>
+              <span>MySQL</span>
+            </div>
+
+            <div class="info-row">
+              <strong>Current Status</strong>
+              <span>In Development</span>
+            </div>
+          </aside>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="features">
+      <div class="container">
+
+        <p class="eyebrow">Core Functionality</p>
+
+        <h2 class="section-title">
+          Project <span class="highlight">Features</span>
+        </h2>
+
+        <p class="section-description">
+          The application includes code
+          implementing these core areas
+          of functionality.
+        </p>
+
+        <div class="features-grid">
+
+          <article class="feature-card">
+            <div class="feature-number">01</div>
+            <h3>User Authentication</h3>
+            <p>
+              Login functionality using
+              PHP sessions, password
+              verification and database
+              queries.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-number">02</div>
+            <h3>Protected Course Access</h3>
+            <p>
+              Server-side authorization
+              checks designed to restrict
+              course content to authenticated
+              users.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-number">03</div>
+            <h3>Video Lessons</h3>
+            <p>
+              A course interface with
+              video playback and protected
+              media delivery.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-number">04</div>
+            <h3>Learning Materials</h3>
+            <p>
+              Controlled access to
+              downloadable documents
+              and course resources.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-number">05</div>
+            <h3>Course Navigation</h3>
+            <p>
+              Lesson browsing, search
+              functionality and navigation
+              between course materials.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-number">06</div>
+            <h3>Security Controls</h3>
+            <p>
+              CSRF protection, login
+              attempt limiting, session
+              expiration and file path
+              validation.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- TECHNOLOGIES -->
+    <section class="technology" id="technology">
+      <div class="container">
+
+        <p class="eyebrow">Technical Overview</p>
+
+        <h2 class="section-title">
+          Technologies & <span class="highlight">Architecture</span>
+        </h2>
+
+        <p class="section-description">
+          The platform combines a
+          responsive user interface,
+          PHP application logic and
+          database-backed authentication.
+        </p>
+
+        <div class="tech-grid">
+
+          <div class="architecture-card">
+            <h3>Front-End</h3>
+
+            <p>
+              HTML5, CSS3 and JavaScript
+              support the responsive
+              course interface, lesson
+              navigation and user
+              interactions.
+            </p>
+
+            <div class="tags">
+              <span class="tag">HTML5</span>
+              <span class="tag">CSS3</span>
+              <span class="tag">JavaScript</span>
+            </div>
+          </div>
+
+          <div class="architecture-card">
+            <h3>Back-End</h3>
+
+            <p>
+              PHP handles authentication,
+              session management,
+              authorization checks
+              and protected content
+              delivery.
+            </p>
+
+            <div class="tags">
+              <span class="tag">PHP</span>
+              <span class="tag">Sessions</span>
+              <span class="tag">CSRF</span>
+            </div>
+          </div>
+
+          <div class="architecture-card">
+            <h3>Database & Access</h3>
+
+            <p>
+              MySQL and PHP PDO support
+              database operations,
+              prepared queries and
+              user credential
+              verification.
+            </p>
+
+            <div class="tags">
+              <span class="tag">MySQL</span>
+              <span class="tag">PDO</span>
+              <span class="tag">SQL</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECT GALLERY -->
+    <section id="project-gallery">
+      <div class="container">
+
+        <p class="eyebrow">Project Gallery</p>
+
+        <h2 class="section-title">
+          Interface <span class="highlight">Preview</span>
+        </h2>
+
+        <p class="section-description">
+          Preview areas representing
+          the platform's main sections.
+          Real screenshots can be added
+          later without publishing
+          private application files.
+        </p>
+
+        <div class="gallery-grid">
+
+          <article class="gallery-card">
+            <div class="gallery-preview">
+              <div>
+                <h3>Academia KM</h3>
+                <p>Educational Landing Page</p>
+              </div>
+            </div>
+
+            <div class="gallery-caption">
+              <h3>Homepage</h3>
+              <p>
+                Public introduction to
+                the educational platform
+                and its programs.
+              </p>
+            </div>
+          </article>
+
+          <article class="gallery-card">
+            <div class="gallery-preview">
+              <div>
+                <h3>Student Login</h3>
+                <p>Authentication Interface</p>
+              </div>
+            </div>
+
+            <div class="gallery-caption">
+              <h3>Login System</h3>
+              <p>
+                Student sign-in interface
+                connected to server-side
+                authentication logic.
+              </p>
+            </div>
+          </article>
+
+          <article class="gallery-card">
+            <div class="gallery-preview">
+              <div>
+                <h3>Learning Portal</h3>
+                <p>Courses & Video Lessons</p>
+              </div>
+            </div>
+
+            <div class="gallery-caption">
+              <h3>Course Interface</h3>
+              <p>
+                Protected lesson navigation,
+                video playback and
+                course organization.
+              </p>
+            </div>
+          </article>
+
+          <article class="gallery-card">
+            <div class="gallery-preview">
+              <div>
+                <h3>Course Resources</h3>
+                <p>Protected Learning Materials</p>
+              </div>
+            </div>
+
+            <div class="gallery-caption">
+              <h3>Learning Materials</h3>
+              <p>
+                Access to downloadable
+                educational resources
+                through protected
+                server-side routes.
+              </p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- STATUS -->
+    <section class="development-note">
+      <div class="container">
+
+        <div class="note-panel">
+          <h3>Development Status</h3>
+
+          <p>
+            Academia KM is an ongoing
+            web development project.
+            Its application code includes
+            user authentication, course
+            navigation, protected content
+            access and responsive interface
+            components. The project has
+            not been presented here as
+            a publicly deployed or
+            independently security-audited
+            application.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact">
+      <div class="container">
+
+        <p class="eyebrow">Let's Connect</p>
+
+        <h2 class="section-title">
+          Interested in <span class="highlight">my work?</span>
+        </h2>
+
+        <p>
+          Explore my other web development
+          projects or visit my GitHub
+          profile to learn more about
+          my work.
+        </p>
+
+        <div class="btn-group">
+          <a href="../index.html#projects" class="btn btn-primary">
+            View All Projects
+          </a>
+
+          <a
+            href="https://github.com/jonathanr704"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-outline"
+          >
+            Visit My GitHub
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+
+      <p>
+        © <span id="currentYear"></span>
+        Jonathan Sosa. All rights reserved.
+      </p>
+
+      <p>
+        <a href="../index.html">Back to Portfolio</a>
+      </p>
+
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+      const year = document.getElementById("currentYear");
+
+      if (year) {
+        year.textContent = new Date().getFullYear();
+      }
+
+      const menuToggle = document.getElementById("menuToggle");
+      const siteNav = document.getElementById("siteNav");
+
+      if (menuToggle && siteNav) {
+
+        function closeMenu() {
+          siteNav.classList.remove("open");
+          menuToggle.setAttribute("aria-expanded", "false");
+          menuToggle.setAttribute("aria-label", "Open navigation");
+        }
+
+        menuToggle.addEventListener("click", function () {
+          const isOpen = siteNav.classList.toggle("open");
+
+          menuToggle.setAttribute("aria-expanded", String(isOpen));
+
+          menuToggle.setAttribute(
+            "aria-label",
+            isOpen ? "Close navigation" : "Open navigation"
+          );
+        });
+
+        siteNav.querySelectorAll("a").forEach(function (link) {
+          link.addEventListener("click", closeMenu);
+        });
+
+        document.addEventListener("keydown", function (event) {
+          if (event.key === "Escape") {
+            closeMenu();
+          }
+        });
+
+        window.addEventListener("resize", function () {
+          if (window.innerWidth > 700) {
+            closeMenu();
+          }
+        });
+
+      }
+
+    });
+  </script>
+
+</body>
+</html>
+
